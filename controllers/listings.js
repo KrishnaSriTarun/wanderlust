@@ -5,7 +5,6 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req, res) => {
       const allListings = await Listing.find({});
-      // Format prices for each listing
       allListings.forEach(listing => {
             listing.formattedPrice = listing.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
       });
@@ -32,14 +31,12 @@ module.exports.createListing= async (req,res)=>{
             query: req.body.listing.location,
             limit: 1,
       })
-            .send()
-
+      .send()
       let url=req.file.path;
       let filename=req.file.filename;
       const newListing = new Listing(req.body.listing);
       newListing.owner = req.user._id;
       newListing.image={url,filename};
-
       newListing.geometry=response.body.features[0].geometry;
       
       let savedList=await newListing.save();
@@ -88,4 +85,14 @@ module.exports.destroyListing=async (req,res)=>{
       console.log(deletedListing);
       req.flash("success","Listing Deleted");
       res.redirect('/listings');
+};
+
+module.exports.categoryListings=async(req,res)=>{ 
+      let cat=req.params;
+      const allListings = await Listing.find({});
+      let categories=await Listing.find(cat);
+      categories.forEach(category=> {
+            category.formattedPrice = category.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
+      });
+      res.render('./listings/category.ejs',{categories,allListings})
 };

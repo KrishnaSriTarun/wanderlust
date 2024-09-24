@@ -6,7 +6,6 @@ const listingController=require('../controllers/listings');
 const multer  = require('multer')
 const {storage}=require('../cloudConfig')
 const upload = multer({ storage });
-const Listing=require('../models/listing');
 
 
 //index and create routes
@@ -23,16 +22,7 @@ router.route('/')
 
 //new route
 router.get('/new',ensureAuthenticated, isLoggedIn,listingController.renderNewForm);
-
-router.get('/category/:category',async(req,res)=>{ 
-      let cat=req.params;
-      const allListings = await Listing.find({});
-      let categories=await Listing.find(cat);
-      categories.forEach(category=> {
-            category.formattedPrice = category.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
-      });
-      res.render('./listings/category.ejs',{categories,allListings})
-})
+router.get('/category/:category',listingController.categoryListings)
 
 //show, update and delete routes
 router.route('/:id')
