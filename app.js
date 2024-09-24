@@ -33,13 +33,12 @@ app.engine('ejs',ejsMate)
 
 
 const dbUrl=process.env.ATLASDB_URL;
-const localurl='mongodb://127.0.0.1:27017/wanderlust'
+
 
 
 // Connect to MongoDB
 async function main(){
-      await mongoose.connect(localurl);
-      // await mongoose.connect(dbUrl);
+      await mongoose.connect(dbUrl);
 };
 
 main().then(res=>{
