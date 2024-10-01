@@ -192,3 +192,18 @@ body{
       border: none;
       background-color: white;
 }
+.signup{
+      /* border: 1px solid black; */
+      padding: 40px 50px;
+      border-radius: 10%;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 575.98px) { /* Bootstrap's default breakpoint for xs screens */
+      .shadow-custom {
+          box-shadow: none; /* Remove box shadow on mobile view */
+      }
+}
+#google-signup {
+      pointer-events: auto;
+      opacity: 1;
+}
