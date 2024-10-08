@@ -1,0 +1,12 @@
+<% layout('/layouts/boilerplate') %>
+<div class="container mt-5">
+      <h1>Booking Confirmation</h1>
+      <p>Thank you for booking your stay at <%= listing.title %>!</p>
+      <p>Your check-in date is: <%= checkInDate %></p>
+      <p>Your check-out date is: <%= checkOutDate %></p>
+      <p>Number of guests: <%= numberOfGuests %></p>
+      <p>Payment method: <%= paymentMethod %></p>
+      <p>Total price: $<%= totalPrice.toFixed(2) %></p>
+      <a href="/listings" class="btn btn-dark edit-btn mt-1">Go to Home</a>
+</div>
+

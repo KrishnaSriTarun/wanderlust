@@ -1,0 +1,39 @@
+<% layout('/layouts/boilerplate') %>
+<div class="row mt-3 mb-3">
+      <div class="col-5 offset-3">
+            <h2>Book Listing</h2>
+            <form method="POST" action="/listings/<%= listing._id %>/book" id="bookingForm" novalidate class="needs-validation">
+                  <div class="mb-3">
+                        <label for="checkInDate" class="form-label">Check-in Date</label>
+                        <input type="date" class="form-control" name="checkInDate" id="checkInDate" required>
+                        <div class="invalid-feedback">Please select a valid check-in date.</div>
+                  </div>
+                  <div class="mb-3">
+                        <label for="checkOutDate" class="form-label">Check-out Date</label>
+                        <input type="date" class="form-control" name="checkOutDate" id="checkOutDate" required>
+                        <div class="invalid-feedback">Please select a valid check-out date.</div>
+                  </div>
+                  <div class="mb-3">
+                        <label for="numberOfGuests" class="form-label">Number of Guests</label>
+                        <input type="number" class="form-control" name="numberOfGuests" placeholder="Number of guests" min="1" required>
+                        <div class="invalid-feedback">Please enter the number of guests.</div>
+                  </div>
+                  <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-control" name="paymentMethod" required>
+                              <option value="" disabled selected>Select Payment Method</option>
+                              <option value="Credit Card">Credit Card</option>
+                              <option value="Debit Card">Debit Card</option>
+                              <option value="PayPal">PayPal</option>
+                        </select>
+                        <div class ="invalid-feedback">Please select a payment method.</div>
+                  </div>
+                  <button type="submit" class="btn btn-dark edit-btn mt-1 px-3" id="bookButton" <% if (bookingConfirmed) { %> disabled <% } %>>Book Now</button>
+            </form>
+            <% if (bookingConfirmed) { %>
+                  <div class="alert alert-warning mt-3">
+                  You have already booked this listing.
+                  </div>
+            <% } %>
+      </div>
+</div>
