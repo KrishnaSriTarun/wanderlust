@@ -1,7 +1,7 @@
 <% layout('/layouts/boilerplate') %>
 <script>
       const mapToken="<%= process.env.MAP_TOKEN %>"
-      const listing= <%- JSON.stringify(listing) %> 
+      const listing= <%- JSON.stringify(listing) %>
 </script>
 <div class="row mt-3">
       <div class="col-8 offset-3">
@@ -13,13 +13,25 @@
                   <p class="card-text"><i>Owned By: <%= listing.owner.username %></i></p>
                   <p class="card-text"><%= listing.description %></p>      
                   <p>Price: <%= listing.price ? listing.price : 'N/A' %></p>
-                  <p class="card-text">&#8377; <%= listing.price.toLocaleString('en-IN') %>/<i>night</i></p>
+                  <p class="card-text">&#8377; <%= listing.price.toLocaleString('en-IN') %></p>
                   <p class="card-text"><%= listing.location %></p>
                   <p class="card-text"><%= listing.country %></p>
             </div>
             </div>
       </div>
-      <% if(currUser && listing.owner._id.equals(currUser._id)){ %>
+      <% if(currUser){ %>
+            <% if(listing.owner._id.equals(currUser._id)){ %>
+                  <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                  <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+                        <button class="btn btn-dark offset-5 px-4" style="margin-top: -60px;">Delete</button>
+                  </form>
+            <% } else { %>
+                  <div class="btns">
+                        <a href="/listings/<%= listing._id %>/book" class="btn btn-dark col-1 offset-3 edit-btn">Book Now</a>
+                  </div>
+            <% } %>
+      <% } %>
+      <!-- <% if(currUser && listing.owner._id.equals(currUser._id)){ %>
       <div class="btns">
             <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
             <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
@@ -30,11 +42,8 @@
       <% if(currUser){ %>
             <div class="btns">
                   <a href="/listings/<%= listing._id %>/book" class="btn btn-dark col-1 offset-3 edit-btn">Book Now</a>
-                  <!-- <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-                        <button class="btn btn-dark col-1 offset- edit-btn">Delete</button>
-                  </form> -->
             </div>
-      <% } %>
+      <% } %> -->
       <div class="col-8 offset-3 mb-3">
             <hr>
             <% if(currUser){ %>
