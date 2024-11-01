@@ -348,5 +348,188 @@ const sampleListings = [
     country: "Costa Rica",
   },
 ];
+// const sampleListings = [
+//   {
+//     title: "Cozy Beachfront Cottage",
+//     description: "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1500,
+//     location: "Malibu",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-118.7831, 34.0259],
+//     },
+//     category: "Beach",
+//   },
+//   {
+//     title: "Modern Loft in Downtown",
+//     description: "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1200,
+//     location: "New York",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-73.935242, 40.73061],
+//     },
+//     category: "Iconic-Cities",
+//   },
+//   {
+//     title: "Mountain Cabin Retreat",
+//     description: "Find peace and tranquility in this secluded mountain cabin. Great for hiking and outdoor activities.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1583847268943-33ae362d8a8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 900,
+//     location: "Aspen",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-106.837, 39.1911],
+//     },
+//     category: "Mountains",
+//   },
+//   {
+//     title: "Charming City Apartment",
+//     description: "This charming city apartment offers a perfect blend of comfort and convenience, ideal for city explorers.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1100,
+//     location: "San Francisco",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-122.4194, 37.7749],
+//     },
+//     category: "Urban",
+//   },
+//   {
+//     title: "Serene Lake House",
+//     description: "Relax and unwind in this serene lake house with stunning views and plenty of outdoor activities.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1506748686214-11d1f2d908d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1400,
+//     location: "Lake Tahoe",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-120.0365, 38.9394],
+//     },
+//     category: "Lake",
+//   },
+//   {
+//     title: "Luxury Villa in Tuscany",
+//     description: "Experience luxury in this beautiful villa surrounded by stunning landscapes and rich history.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1566740461668-b3c9f6225d26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 3000,
+//     location: "Tuscany",
+//     country: "Italy",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [11.0011, 43.3187],
+//     },
+//     category: "Luxury",
+//   },
+//   {
+//     title: "Historic Castle Stay",
+//     description: "Live like royalty in this historic castle with modern amenities and breathtaking views.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1565091227123-e9240d3d67c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 5000,
+//     location: "Scotland",
+//     country: "United Kingdom",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-4.6204, 56.4907],
+//     },
+//     category: "Historic",
+//   },
+//   {
+//     title: "Desert Oasis Retreat",
+//     description: "Unwind in this stunning desert oasis surrounded by breathtaking landscapes and tranquility.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1580587602070-e07f9f6a68d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1600,
+//     location: "Palm Springs",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-116.5452, 33.8303],
+//     },
+//     category: "Desert",
+//   },
+//   {
+//     title: "Quaint Countryside Cottage",
+//     description: "Experience the charm of the countryside in this quaint cottage surrounded by nature.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1593642632875-e85a501c77c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 800,
+//     location: "Upstate New York",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-74.123, 42.7741],
+//     },
+//     category: "Countryside",
+//   },
+//   {
+//     title: "Urban Loft with Rooftop",
+//     description: "This urban loft features a rooftop terrace with stunning city views, perfect for relaxation after a day of exploration.",
+//     image: {
+//       url: "https://images.unsplash.com/photo-1585428629526-64b11d8b5ab7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+//       filename: "listingimage",
+//     },
+//     price: 1300,
+//     location: "Chicago",
+//     country: "United States",
+//     reviews: [], // Sample data for related reviews
+//     owner: "612f1fbbfc13ae2d1e000002", // Replace with actual ObjectId of user
+//     geometry: {
+//       type: "Point",
+//       coordinates: [-87.6298, 41.8781],
+//     },
+//     category: "Urban",
+//   },
+// ];
+
 
 module.exports = { data: sampleListings };

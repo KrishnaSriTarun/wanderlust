@@ -49,10 +49,6 @@ main().then(res=>{
 });
 
 
-// app.get('/',(req,res)=>{
-//       res.send('Welcome to Wanderlust API');
-// }); 
-
 const store=MongoStore.create({
       mongoUrl:dbUrl,
       crypto:{
@@ -101,7 +97,10 @@ app.use((req,res,next)=>{
 app.use('/listings',listingRouter);
 app.use('/listings/:id/reviews',reviewRouter);
 app.use('/',userRouter);
-
+ 
+app.get('/',(req,res)=>{
+      res.redirect('/listings')
+}); 
 
 app.all("*",(req,res,next)=>{
       next(new ExpressError(404,"Page Not Found"));
@@ -109,7 +108,6 @@ app.all("*",(req,res,next)=>{
 
 app.use((err,req,res,next)=>{
       let {status=500,message="Something went wrong!"}=err;
-      // res.status(status).send(message);
       res.status(status).render('error.ejs',{err});
 });
 
