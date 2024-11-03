@@ -44,7 +44,7 @@ router.route('/:id')
 //Edit Route
 router.get('/:id/edit', isOwner, ensureAuthenticated, isLoggedIn, wrapAsync(listingController.renderEditForm));
 //Booking Route
-router.get('/:id/book',ensureAuthenticated, isLoggedIn, wrapAsync(listingController.BookingListing));
+router.get('/:id/book',ensureAuthenticated,validateListing, isLoggedIn, wrapAsync(listingController.BookingListing));
 
 
 // Booked route

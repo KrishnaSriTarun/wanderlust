@@ -97,8 +97,15 @@ module.exports.categoryListings = async (req, res) => {
       res.render('./listings/category.ejs', { categories, allListings })
 };
 module.exports.BookingListing = async (req, res) => {
-      res.render('listings/booking', { listing, bookingConfirmed: false });
-}
+      try {
+            const { id } = req.params;
+            const listing = await Listing.findById(id);
+            res.render('listings/booking', { listing, bookingConfirmed: false });
+      } catch (error) {
+            console.error(error);
+            res.status(500).send("An error occurred while fetching the listing");
+      }
+};
 module.exports.BookedListing = async (req, res) => {
       const { checkInDate, checkOutDate, numberOfGuests, paymentMethod } = req.body;
       const listingId = req.params.id;
