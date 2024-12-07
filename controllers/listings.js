@@ -23,7 +23,7 @@ module.exports.showListing = async (req, res) => {
             req.flash("error", "Listing you requested for doesn't exist");
             return res.redirect('/listings');
       }
-      res.render('./listings/show.ejs', { listing });
+      res.render('./listings/show.ejs', { listing});
 };
 
 module.exports.createListing = async (req, res) => {
@@ -97,14 +97,9 @@ module.exports.categoryListings = async (req, res) => {
       res.render('./listings/category.ejs', { categories, allListings })
 };
 module.exports.BookingListing = async (req, res) => {
-      try {
             const { id } = req.params;
             const listing = await Listing.findById(id);
             res.render('listings/booking', { listing, bookingConfirmed: false });
-      } catch (error) {
-            console.error(error);
-            res.status(500).send("An error occurred while fetching the listing");
-      }
 };
 module.exports.BookedListing = async (req, res) => {
       const { checkInDate, checkOutDate, numberOfGuests, paymentMethod } = req.body;
@@ -121,11 +116,9 @@ module.exports.BookedListing = async (req, res) => {
             const dailyRate = listing.price;
             const timeDifference = checkOut - checkIn;
             const days = Math.ceil(timeDifference / (1000 * 3600 * 24));
-            return dailyRate * days * numberOfGuests;
+            return (dailyRate *(18/100)) * days * numberOfGuests;
       }
-      const existingBooking = await Booking.findOne({
-            listingId,
-            $or: [
+      const existingBooking = await Booking.findOne({listingId,$or: [
                   { checkInDate: { $lt: checkOut, $gte: checkIn } },
                   { checkOutDate: { $gt: checkIn, $lte: checkOut } },
                   { checkInDate: { $lte: checkIn }, checkOutDate: { $gte: checkOut } }

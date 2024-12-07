@@ -10,6 +10,6 @@ router.post('/',isLoggedIn,validateReview,wrapAsync(reviewController.createRevie
 
 //Delete Review Route
 
-router.delete('/:reviewId',isLoggedIn,isReviewAuthor,wrapAsync(reviewController.destroyReview   ));
+router.delete('/:reviewId',isLoggedIn,isReviewAuthor,wrapAsync(reviewController.destroyReview));
 
 module.exports=router;

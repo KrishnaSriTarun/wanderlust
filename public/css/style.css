@@ -219,8 +219,18 @@ body {
             box-shadow: none;
       }
 }
+
 #google-signup {
       pointer-events: auto;
       opacity: 1;
 }
-
+.card-style {
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 16px;
+}
+.card-style:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
