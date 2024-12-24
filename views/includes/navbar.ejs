@@ -15,7 +15,8 @@
                   </div>
                   <div class="navbar-nav ms-auto">
                         <form class="d-flex" role="search">
-                              <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
+                              <input class="form-control me-2 search-inp" type="search"
+                                    placeholder="Search destination" />
                               <button class="btn search-btn" type="submit">
                                     <i class="fa-solid fa-magnifying-glass"></i> Search
                               </button>
@@ -23,14 +24,15 @@
                   </div>
                   <div class="navbar-nav ms-auto">
                         <a class="nav-link" href="/listings/new">Add Your Nearby Locations</a>
-                        <% if (!currUser) { %>
-                              <a class="nav-link" href="/signup"><b>Signup</b></a>
-                              <a class="nav-link" href="/login">
-                                    <i class="fa-regular fa-circle-user"></i> <b>Login</b>
-                              </a>
+                        <% if (currUser && currUser.username) { %>
+                              <a class="nav-link" href="/logout">Logout</a>
                               <% } else { %>
-                                    <a class="nav-link" href="/logout">Logout</a>
+                                    <a class="nav-link" href="/signup"><b>Signup</b></a>
+                                    <a class="nav-link" href="/login">
+                                          <i class="fa-regular fa-circle-user"></i> <b>Login</b>
+                                    </a>
                                     <% } %>
+
                   </div>
             </div>
 
