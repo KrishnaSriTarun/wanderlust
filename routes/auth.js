@@ -4,7 +4,6 @@ const router = express.Router();
 
 // Google OAuth routes
 router.get("/google",(req,res,next)=>{
-      req.flash("success", "Welcome back!"),
       passport.authenticate("google", { scope: ["profile", "email"] })(req, res, next);
 }
       
