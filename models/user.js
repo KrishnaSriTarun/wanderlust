@@ -17,7 +17,6 @@ const userSchema = new Schema(
             },
             phoneNumber: {
                   type: String,
-                  required: true, 
             },
             displayName: {
                   type: String,
@@ -30,14 +29,6 @@ const userSchema = new Schema(
       },
       { timestamps: true }
 );
-
-// Middleware to normalize phoneNumber
-userSchema.pre('save', function (next) {
-      if (this.phoneNumber.startsWith('0')) {
-            this.phoneNumber = this.phoneNumber.slice(1); 
-      }
-      next();
-});
 
 userSchema.plugin(passportLocalMongoose);
 
