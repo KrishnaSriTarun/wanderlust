@@ -17,8 +17,7 @@ const userSchema = new Schema(
             },
             phoneNumber: {
                   type: String,
-                  required: true,
-                  match: [/^\d{10}$/, 'Please fill a valid phone number'], 
+                  required: true, 
             },
             displayName: {
                   type: String,
