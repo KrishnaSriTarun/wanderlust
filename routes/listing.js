@@ -15,7 +15,8 @@ const Listing = require('../models/listing');
 router.route('/')
       .get(wrapAsync(listingController.index))
       .post(ensureAuthenticated, isLoggedIn, validateListing, upload.single('listing[image]'), wrapAsync(listingController.createListing))
-
+// Searching Route
+router.get('/search', wrapAsync(listingController.searchListing));
 
 // //index route
 // router.get('/',wrapAsync(listingController.index));

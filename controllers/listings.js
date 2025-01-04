@@ -149,3 +149,24 @@ module.exports.BookedListing = async (req, res) => {
       };
       res.render('listings/booked', confirmationData);
 };
+
+module.exports.searchListing =async (req, res) => {
+      let { query } = req.query;
+      query = query.trim();
+      try {
+            const allListings = await Listing.find({
+                  $or: [
+                        { title: { $regex: query, $options: 'i' } },
+                        { location: { $regex: query, $options: 'i' } },
+                        { country: { $regex: query, $options: 'i' } },
+                  ]
+            });
+            allListings.forEach(listing => {
+                  listing.formattedPrice = listing.price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
+            });
+            res.render('listings/search', { allListings, query });
+      } catch (err) {
+            console.error("Error in search:", err);
+            res.status(500).send('Server Error');
+      }
+};

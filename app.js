@@ -15,7 +15,7 @@ const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("./config/passport");
 const User = require("./models/user");
-const authRouter = require("./routes/auth"); 
+const authRouter = require("./routes/auth");    
 
 if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
       throw new Error("Google API keys are missing. Ensure they are set in the .env file.");
@@ -87,7 +87,7 @@ app.get("/", (req, res) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-app.use("/auth", authRouter);  // Auth routes for Google login
+app.use("/auth", authRouter); 
 
 // Error handling
 app.use((err, req, res, next) => {
